@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore - Pinterest</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#e60023"/><text x="12" y="17.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff">P</text></svg> Pinterest</a>
+    <a href="/explore.html" class="nav-link active">Explore</a>
+    <form class="search" id="searchForm">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15zm6-1.5L21 21"/></svg>
+      <input id="q" type="search" placeholder="Search for easy dinners, fashion, etc." autocomplete="off" />
+    </form>
+    <nav class="nav-right" id="navRight"></nav>
+  </header>
+
+  <div class="status" id="status"></div>
+  <section class="masonry" id="grid"></section>
+
+  <!-- shown when a logged-out visitor clicks Save -->
+  <div class="modal-bg hidden" id="loginModal">
+    <div class="modal">
+      <button class="x" data-close aria-label="Close">&times;</button>
+      <a href="/" class="logo" style="justify-content:center"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#e60023"/><text x="12" y="17.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff">P</text></svg></a>
+      <h2>Log in to save pins</h2>
+      <p>Create an account or log in to save ideas to your boards.</p>
+      <a href="/login.html" class="btn btn-red btn-block" style="height:48px">Log in</a>
+      <a href="/signup.html" class="btn btn-gray btn-block" style="height:48px">Sign up</a>
+    </div>
+  </div>
+
+  <!-- shown when a logged-in user clicks Save -->
+  <div class="modal-bg hidden" id="saveModal">
+    <div class="modal">
+      <button class="x" data-close aria-label="Close">&times;</button>
+      <h2>Save to board</h2>
+      <p class="msg" id="saveMsg"></p>
+      <select id="boardSelect"></select>
+      <input id="newBoard" placeholder="Or create a new board" />
+      <button class="btn btn-red btn-block" id="confirmSave" style="height:48px">Save</button>
+    </div>
+  </div>
+
+  <script src="/js/explore.js"></script>
+</body>
+</html>

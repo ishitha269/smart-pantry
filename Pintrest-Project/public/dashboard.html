@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your pins and boards - Pinterest</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#e60023"/><text x="12" y="17.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff">P</text></svg> Pinterest</a>
+    <a href="/explore.html" class="nav-link">Explore</a>
+    <div class="spacer"></div>
+    <nav class="nav-right">
+      <span id="welcome" class="nav-link" style="cursor:default"></span>
+      <button class="btn btn-gray" id="logoutBtn">Log out</button>
+    </nav>
+  </header>
+
+  <div class="tabs">
+    <button class="nav-link active" data-tab="mypins">My Pins</button>
+    <button class="nav-link" data-tab="boards">Boards</button>
+  </div>
+
+  <div class="dash">
+    <!-- MY PINS -->
+    <section id="tab-mypins">
+      <div class="form-box">
+        <h2 id="formTitle">Create a Pin</h2>
+        <p class="msg" id="pinMsg"></p>
+        <form id="pinForm">
+          <input type="text" id="title" placeholder="Title" required />
+          <input type="url" id="imageUrl" placeholder="Image URL (https://...)" required />
+          <textarea id="description" placeholder="Description (optional)" rows="2"></textarea>
+          <button type="submit" class="btn btn-red" id="submitBtn">Save Pin</button>
+          <button type="button" class="btn btn-gray hidden" id="cancelBtn">Cancel edit</button>
+        </form>
+      </div>
+      <h2>Your pins</h2>
+      <div class="masonry" id="myPinsGrid" style="padding-left:0;padding-right:0"></div>
+    </section>
+
+    <!-- BOARDS -->
+    <section id="tab-boards" class="hidden">
+      <h2>Create a board</h2>
+      <p class="msg" id="boardMsg"></p>
+      <form class="board-form" id="boardForm">
+        <input type="text" id="boardName" placeholder="Board name (e.g. Recipes)" required />
+        <button type="submit" class="btn btn-red">Create</button>
+      </form>
+      <div id="boardsList"></div>
+    </section>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

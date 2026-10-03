@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in - Pinterest</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <a href="/" class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#e60023"/><text x="12" y="17.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff">P</text></svg></a>
+      <h1>Welcome to Pinterest</h1>
+      <p class="sub">Log in to see more</p>
+      <p class="msg" id="msg"></p>
+      <form data-url="/api/auth/login">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Email address" required />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Password" required />
+        <button type="submit" class="btn btn-red">Log in</button>
+      </form>
+      <p class="switch">Not on Pinterest yet? <a href="/signup.html">Sign up</a></p>
+    </div>
+  </div>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

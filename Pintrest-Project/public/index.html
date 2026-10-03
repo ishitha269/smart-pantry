@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pinterest - Create the life you love</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#e60023"/><text x="12" y="17.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff">P</text></svg> Pinterest</a>
+    <a href="/explore.html" class="nav-link">Explore</a>
+    <form class="search" id="searchForm">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15zm6-1.5L21 21"/></svg>
+      <input id="q" type="search" placeholder="Search for easy dinners, fashion, etc." autocomplete="off" />
+    </form>
+    <nav class="nav-right">
+      <a href="#" class="nav-link hide-sm">About</a>
+      <a href="#" class="nav-link hide-sm">Businesses</a>
+      <a href="/login.html" class="nav-link hide-sm">Create</a>
+      <a href="#" class="nav-link hide-sm">News</a>
+      <a href="/login.html" class="btn btn-red">Log in</a>
+      <a href="/signup.html" class="btn btn-gray">Sign up</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Create the life you love<br />on Pinterest</h1>
+      <div class="hero-actions">
+        <a href="/signup.html" class="btn btn-red btn-lg">Join Pinterest for free</a>
+        <a href="/login.html" class="btn btn-gray btn-lg">I already have an account</a>
+      </div>
+    </div>
+
+    <div class="collage" aria-hidden="true">
+      <img class="c1" src="https://picsum.photos/seed/hero-a/448/430" alt="" />
+      <img class="c2" src="https://picsum.photos/seed/hero-b/336/304" alt="" />
+      <img class="c3" src="https://picsum.photos/seed/hero-c/562/756" alt="" />
+      <img class="c4" src="https://picsum.photos/seed/hero-d/270/338" alt="" />
+      <img class="c5" src="https://picsum.photos/seed/hero-e/450/564" alt="" />
+      <img class="c6" src="https://picsum.photos/seed/hero-f/338/338" alt="" />
+    </div>
+  </section>
+
+  <section class="band">
+    <h2>Find ideas worth saving</h2>
+    <p>Browse inspiration for recipes, home, style and more. Log in to save your favourite pins to boards.</p>
+    <a href="/explore.html" class="btn btn-red btn-lg">Explore pins</a>
+  </section>
+
+  <script>
+    // Already logged in? Go straight to Explore, like the real site.
+    fetch('/api/auth/me').then((r) => { if (r.ok) window.location.href = '/explore.html'; }).catch(() => {});
+
+    // Search sends you to Explore with the search word
+    document.getElementById('searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = document.getElementById('q').value.trim();
+      window.location.href = '/explore.html' + (q ? '?q=' + encodeURIComponent(q) : '');
+    });
+
+    // About / Businesses / News are just placeholders
+    document.querySelectorAll('a[href="#"]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  </script>
+</body>
+</html>

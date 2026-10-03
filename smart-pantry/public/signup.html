@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up - Smart Pantry</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a href="/" class="brand">🥫 Smart Pantry</a>
+      <h2>Create your account</h2>
+      <p class="msg" id="msg"></p>
+      <form data-url="/api/auth/signup">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password (min 6 characters)" required />
+        <button type="submit" class="btn btn-accent btn-block">Sign up</button>
+      </form>
+      <p class="switch">Already have an account? <a href="/login.html">Log in</a></p>
+    </div>
+  </div>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
